@@ -1,0 +1,25 @@
+interfaces:
+
+  GigabitEthernet 1/0/1:
+    ipv4:
+      addresses:
+        - 10.10.10.10/24
+    ipv6:
+      addresses:
+        - 2000:db8::45/64      
+
+  TenGigabitEthernet 1/0/2:
+    ipv4:
+      addresses:
+        - 145.65.78.89/24
+    ipv6:
+      addresses:
+        - 2000:db8::45/64      
+
+  Loopback 0:
+    ipv4:
+      addresses:
+        - 100.64.255.1/32
+    ipv6:
+      addresses:
+        - 2000:db8:1001::1/64      

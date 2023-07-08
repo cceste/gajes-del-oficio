@@ -1,0 +1,10 @@
+{% for interface,settings in datos.interfaces.items() %}
+interface {{interface}}
+  {%+ for address in settings.ipv4.addresses %}
+  ip address {{address}}
+  {% endfor -%}
+  
+  {% for address in settings.ipv6.addresses %}
+  ipv6 address {{address}}
+  {% endfor %}
+{% endfor %}

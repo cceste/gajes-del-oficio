@@ -1,0 +1,26 @@
+{% for interface,settings in datos.interfaces.items() %}
+interface {{interface}}
+  {% for address in settings.ipv4.addresses %}
+  ip address {{address}}
+  {% endfor %}
+  {% for address in settings.ipv6.addresses %}
+  ipv6 address {{address}}
+  {% endfor %}
+{% endfor %}
+
+{% if 'protocols' in datos %}
+{% if 'ospf' in datos.protocols %}
+{% set ospf = datos.protocols.ospf %}
+router ospf 1
+  router-id {{ospf.router_id}}
+{% for interface,settings in datos.interfaces.items() %}
+{% if 'ospf' in settings.protocols %}
+{% set ospf = settings.protocols.ospf %}
+{% for address in settings.ipv4.addresses %}
+  network {{ address }}
+{% endfor %}
+{% else %}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endif %}

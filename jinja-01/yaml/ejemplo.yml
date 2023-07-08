@@ -1,0 +1,9 @@
+clave: valor
+lista:
+  - elemento1
+  - elemento2
+  - elemento3
+diccionario:
+  clave1: valor1
+  clave2: valor2
+
