@@ -1,0 +1,14 @@
+interface GigabitEthernet 1/0/1
+  ip address 10.10.10.10 255.255.255.0
+  ipv6 address 2000:db8::45/64
+interface TenGigabitEthernet 1/0/2
+  ip address 145.65.78.89 255.255.255.0
+  ipv6 address 2000:db8::45/64
+interface Loopback 0
+  ip address 100.64.255.1 255.255.255.255
+  ipv6 address 2000:db8:1001::1/64
+
+router ospf 1
+  router-id 100.64.255.1
+  network 10.10.10.10 0.0.0.255 area 0.0.0.0
+  network 100.64.255.1 0.0.0.0 area 0.0.0.0
